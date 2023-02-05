@@ -1,16 +1,18 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onSelect }) => {
 
     return (
-        <View style={styles.container}>
-            <Image style={styles.image} source={{ uri: product.image }} />
-            <View style={styles.bodyContainer}>
-                <Text style={styles.title}>{product.title}</Text>
-                <Text style={styles.price}>{product.price} TL</Text>
+        <TouchableWithoutFeedback onPress={onSelect}>
+            <View style={styles.container}>
+                <Image style={styles.image} source={{ uri: product.image }} />
+                <View style={styles.bodyContainer}>
+                    <Text style={styles.title}>{product.title}</Text>
+                    <Text style={styles.price}>{product.price} TL</Text>
+                </View>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     )
 }
 
